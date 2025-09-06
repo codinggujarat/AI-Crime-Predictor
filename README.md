@@ -19,7 +19,7 @@ AI Crime Predictor is a Flask-based web application for predicting and visualizi
 ## Installation
 1. Clone the repository:
    ```bash
-   git clone <repo-url>
+   git clone [https://github.com/codinggujarat/AI-Crime-Predictor](https://github.com/codinggujarat/AI-Crime-Predictor)
    cd ai-crime-predictor
    ```
 2. Create a virtual environment and install dependencies:
