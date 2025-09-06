@@ -67,3 +67,10 @@ ai-crime-predictor/
 3. Train the model using the upload
 4. Explore charts and tables for insights
 5. Download the trained model for further use
+
+
+## Demo
+![AI Crime Predictor Dashboard](/demo/demo1.jpg)
+![AI Crime Predictor Dashboard](/demo/demo2.jpg)
+![AI Crime Predictor Dashboard](/demo/demo3.jpg)
+![AI Crime Predictor Dashboard](/demo/demo4.jpg)
