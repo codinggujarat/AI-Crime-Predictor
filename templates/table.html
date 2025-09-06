@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Crime Table</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.13.6/css/jquery.dataTables.min.css">
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js"></script>
+<link
+    href="https://api.fontshare.com/v2/css?f[]=general-sans@200,300,400,500,700&f[]=clash-grotesk@200,300,400,700&f[]=chillax@200,400,500,700&f[]=panchang@200,300,400,500,600&f[]=poppins@100,200,300&f[]=quicksand@300,400,500&display=swap"
+    rel="stylesheet">
+   <style>
+        body {
+            /* Light pastel background */
+            color: #333;
+            font-family: 'quicksand', sans-serif;
+            text-transform: capitalize;
+        }
+
+        .chart-container {
+            margin-top: 20px;
+            padding: 20px;
+            background-color: #fff8f5;
+            /* light pastel card bg */
+            border-radius: 10px;
+            box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.05);
+        }
+
+        /* Table header with Bootstrap success color */
+        #crimeTable thead th {
+            background-color: #198754 !important;
+            /* Bootstrap bg-success */
+            color: #fff;
+            font-weight: lighter;
+            text-align: center !important;
+        }
+
+        /* Table content centered */
+        #crimeTable tbody td {
+            text-align: center !important;
+            font-weight:normal;
+        }
+
+        table.dataTable tbody tr:nth-child(odd) {
+            background-color: #f8f9fa;
+            /* Light row color */
+        }
+
+        table.dataTable tbody tr:nth-child(even) {
+            background-color: #ffffff;
+            /* Alternate row color */
+        }
+
+        .alert-light-info {
+            background-color: #d9edf7;
+            /* Light info background */
+            color: #0c5460;
+            border-radius: 5px;
+            padding: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container  chart-container">
+
+        <h2 class="text-uppercase fw-bold mb-3">ML Summary / Insights</h2>
+        <div class="alert-light-info">{{ summary }}</div>
+
+        <h2 class="text-uppercase fw-bold mb-3 ">Crime Data Table</h2>
+        <!-- Bootstrap responsive table wrapper -->
+        <div class="table-responsive ">
+            <table class="table table-bordered " id="crimeTable">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Type</th>
+                        <th>Location</th>
+                        <th>Date</th>
+                        <th>Time</th>
+                        <th>Reported By</th>
+                        <th>Predicted Severity</th>
+                        <th>Severity Score</th>
+                        <th>Status</th>
+                        <th>Notes</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for crime in crime_list %}
+                    <tr>
+                        <td>{{ crime.id }}</td>
+                        <td>{{ crime.type }}</td>
+                        <td>{{ crime.location }}</td>
+                        <td>{{ crime.date }}</td>
+                        <td>{{ crime.time }}</td>
+                        <td>{{ crime.reported_by }}</td>
+                        <td>{{ crime.predicted_severity }}</td>
+                        <td>{{ crime.severity_score }}</td>
+                        <td>{{ crime.status }}</td>
+                        <td>{{ crime.notes }}</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+
+        <a href="/" class="btn btn-success mt-3">Back to Dashboard</a>
+    </div>
+
+    <script>
+        $(document).ready(function () {
+            $('#crimeTable').DataTable();
+        });
+    </script>
+</body>
+
+</html>
